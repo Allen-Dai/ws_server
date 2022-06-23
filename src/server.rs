@@ -42,7 +42,6 @@ async fn user_connected(ws: WebSocket, users: Users) {
     });
 
     users.write().await.insert(my_id, tx);
-    eprintln!("User connected");
 
     while let Some(result) = user_ws_rx.next().await {
         let msg = match result {
